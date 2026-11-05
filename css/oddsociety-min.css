@@ -13,13 +13,14 @@
 }
 
 /* ---- minimal page base ---- */
+#wrap{background:transparent !important;border-color:transparent !important;box-shadow:none !important}
 body{background:var(--os-bg) radial-gradient(#16224a 1.4px,transparent 1.6px) 0 0/12px 12px !important;color:var(--os-text);font-family:var(--os-body)}
 
 /* ---- toolbars (search / mark read links) ---- */
 .os-toolbar{display:flex;flex-wrap:wrap;gap:6px 22px;list-style:none;margin:0 0 22px;padding:0;font-family:var(--os-body);font-size:13px}
 .os-toolbar--bottom{margin:0}
 .os-toolbar-item--end{margin-left:auto}
-.os-toolbar-link{color:var(--os-cyan);text-decoration:none}
+.os-toolbar a.os-toolbar-link,.os-toolbar a.os-toolbar-link:link,.os-toolbar a.os-toolbar-link:visited{color:var(--os-cyan) !important;text-decoration:none}
 .os-toolbar-link:hover{color:var(--os-pink)}
 
 /* ---- category panel ---- */
@@ -31,7 +32,7 @@ body{background:var(--os-bg) radial-gradient(#16224a 1.4px,transparent 1.6px) 0 
 /* category header = cream paper bar */
 .os-cat-head{display:flex;align-items:center;min-height:50px;background:var(--os-cream);color:var(--os-bg);font-family:var(--os-body);font-weight:500;font-size:13.5px}
 .os-cat-title{flex:1;min-width:0;padding-left:26px}
-.os-cat-name{margin:0;padding:0;border:0;font-family:var(--os-display);font-weight:700;font-size:21px;letter-spacing:-.02em;color:var(--os-bg)}
+.os-cat .os-cat-name,.os-cat .os-cat-name a,.os-cat .os-cat-name a:link,.os-cat .os-cat-name a:visited{margin:0 !important;padding:0 !important;border:0 !important;font-family:var(--os-display) !important;font-weight:700 !important;font-size:21px !important;line-height:1.2 !important;letter-spacing:-.02em !important;text-transform:none !important;color:var(--os-bg) !important;text-decoration:none !important}
 .os-col{flex:none;box-sizing:border-box;width:var(--os-w-count);text-align:center}
 .os-cat-head .os-col-last{width:var(--os-w-last);padding-left:20px;text-align:left}
 
@@ -50,13 +51,15 @@ body{background:var(--os-bg) radial-gradient(#16224a 1.4px,transparent 1.6px) 0 
 
 /* name / description / subforums */
 .os-main{box-sizing:border-box;flex:1;min-width:0;margin-left:0 !important;padding-right:20px;font-size:13.5px;line-height:1.45;color:var(--os-muted)}
-.os-forum-title{margin:0;padding:0;border:0;font:inherit}
-.os-main a.os-forum-link{font-family:var(--os-display);font-weight:700;font-size:23px;letter-spacing:-.02em;color:var(--os-text);text-decoration:none}
-.os-forum[style*="unread"] .os-main a.os-forum-link{color:var(--os-cream)}
+.os-forum-title{margin:0 !important;padding:0 !important;border:0 !important;font:inherit;text-transform:none !important}
+.os-cat .os-main a.os-forum-link,.os-cat .os-main a.os-forum-link:link,.os-cat .os-main a.os-forum-link:visited{font-family:var(--os-display) !important;font-weight:700 !important;font-size:23px !important;letter-spacing:-.02em !important;text-transform:none !important;color:var(--os-text) !important;text-decoration:none !important}
+.os-cat .os-forum[style*="unread"] .os-main a.os-forum-link,.os-cat .os-forum[style*="unread"] .os-main a.os-forum-link:link,.os-cat .os-forum[style*="unread"] .os-main a.os-forum-link:visited{color:var(--os-cream) !important}
 .os-desc{margin-top:3px}
-.os-main a{color:var(--os-cyan);text-decoration:none}
-.os-subs a,.os-mods a{display:inline-block;margin:9px 8px 0 0;padding:1px 10px;background:var(--os-cream);color:var(--os-bg);font-family:var(--os-mono);font-weight:700;font-size:12.5px;text-decoration:none;transform:rotate(-1.5deg)}
-.os-subs a:nth-of-type(even){transform:rotate(1.2deg)}
+.os-main a:link,.os-main a:visited{color:var(--os-cyan);text-decoration:none}
+/* subforum links arrive inside {LINKS} (and sometimes {SUBFORUMS}): font-size 0 hides the commas/labels between them */
+.os-extra,.os-subs{font-size:0;line-height:0}
+.os-cat .os-extra a,.os-cat .os-extra a:link,.os-cat .os-extra a:visited,.os-cat .os-subs a,.os-cat .os-subs a:link,.os-cat .os-subs a:visited{display:inline-block;margin:9px 8px 0 0;padding:1px 10px;background:var(--os-cream);color:var(--os-bg) !important;font-family:var(--os-mono) !important;font-weight:700;font-size:12.5px !important;line-height:1.5;text-transform:none;text-decoration:none !important;transform:rotate(-1.5deg)}
+.os-extra a:nth-of-type(even),.os-subs a:nth-of-type(even){transform:rotate(1.2deg)}
 
 /* counts */
 .os-forum .os-col{font-family:var(--os-display);font-weight:700;font-size:28px;line-height:1}
@@ -70,7 +73,7 @@ body{background:var(--os-bg) radial-gradient(#16224a 1.4px,transparent 1.6px) 0 
 .os-last-avatar{flex:none;line-height:0;border:2px solid var(--os-cream);transform:rotate(-3deg)}
 .os-last-avatar img{display:block;width:54px !important;height:54px !important;max-width:none !important;max-height:none !important;object-fit:cover}
 .os-last-body{position:relative;flex:1;min-width:0;padding-right:50px}
-.os-last-title{display:block;font-weight:600;font-size:15px;line-height:1.3;color:var(--os-cream);text-decoration:none}
+.os-cat a.os-last-title,.os-cat a.os-last-title:link,.os-cat a.os-last-title:visited{display:block;font-weight:600 !important;font-size:15px !important;line-height:1.3;text-transform:none;color:var(--os-cream) !important;text-decoration:none !important}
 .os-last-meta a,.os-last-meta strong{font-weight:600;text-decoration:none}
 .os-last-meta > strong:before{content:"by ";font-weight:400;color:var(--os-muted)}
 /* pure-black group colours are invisible on dark */
