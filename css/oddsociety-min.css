@@ -32,7 +32,7 @@ body{background:var(--os-bg) radial-gradient(#16224a 1.4px,transparent 1.6px) 0 
 /* category header = cream paper bar */
 .os-cat-head{display:flex;align-items:center;min-height:50px;background:var(--os-cream);color:var(--os-bg);font-family:var(--os-body);font-weight:500;font-size:13.5px}
 .os-cat-title{flex:1;min-width:0;padding-left:26px}
-.os-cat .os-cat-name,.os-cat .os-cat-name a,.os-cat .os-cat-name a:link,.os-cat .os-cat-name a:visited{margin:0 !important;padding:0 !important;border:0 !important;font-family:var(--os-display) !important;font-weight:700 !important;font-size:21px !important;line-height:1.2 !important;letter-spacing:-.02em !important;text-transform:none !important;color:var(--os-bg) !important;text-decoration:none !important}
+.os-cat .os-cat-name,.os-cat .os-cat-name h2,.os-cat .os-cat-name a,.os-cat .os-cat-name a:link,.os-cat .os-cat-name a:visited{margin:0 !important;padding:0 !important;border:0 !important;font-family:var(--os-display) !important;font-weight:700 !important;font-size:21px !important;line-height:1.2 !important;letter-spacing:-.02em !important;text-transform:none !important;color:var(--os-bg) !important;text-decoration:none !important}
 .os-col{flex:none;box-sizing:border-box;width:var(--os-w-count);text-align:center}
 .os-cat-head .os-col-last{width:var(--os-w-last);padding-left:20px;text-align:left}
 
@@ -55,6 +55,7 @@ body{background:var(--os-bg) radial-gradient(#16224a 1.4px,transparent 1.6px) 0 
 .os-cat .os-main a.os-forum-link,.os-cat .os-main a.os-forum-link:link,.os-cat .os-main a.os-forum-link:visited{font-family:var(--os-display) !important;font-weight:700 !important;font-size:23px !important;letter-spacing:-.02em !important;text-transform:none !important;color:var(--os-text) !important;text-decoration:none !important}
 .os-cat .os-forum[style*="unread"] .os-main a.os-forum-link,.os-cat .os-forum[style*="unread"] .os-main a.os-forum-link:link,.os-cat .os-forum[style*="unread"] .os-main a.os-forum-link:visited{color:var(--os-cream) !important}
 .os-desc{margin-top:3px}
+.os-desc br:last-child{display:none}
 .os-main a:link,.os-main a:visited{color:var(--os-cyan);text-decoration:none}
 /* subforum links arrive inside {LINKS} (and sometimes {SUBFORUMS}): font-size 0 hides the commas/labels between them */
 .os-extra,.os-subs{font-size:0;line-height:0}
