@@ -87,14 +87,15 @@ body{background:var(--os-bg) radial-gradient(#1d1630 1.4px,transparent 1.6px) 0 
 
 .os-cat--gallery .os-forums,.os-gallery{box-sizing:border-box;padding:16px;overflow:auto;background:var(--os-card);border:2px solid var(--os-border);box-shadow:6px 6px 0 var(--os-shadow)}
 
-/* ---- legend (ul in index_body) ---- */
-.os-legend{list-style:none;margin:48px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:12px 44px;align-items:center;margin-top:8px;font-family:var(--os-mono);font-size:13px;color:var(--os-muted)}
-.os-legend-item{display:flex;align-items:center;gap:8px}
-.os-legend-img{display:none}
-.os-legend-ico{width:34px;height:34px;background:var(--os-ico-read) center/contain no-repeat}
-.os-legend-ico--unread{background-image:var(--os-ico-unread)}
-.os-legend-ico--locked{background-image:var(--os-ico-locked)}
-
+/* ---- legend (ul in index_body): uses the same stickers as the forum rows ---- */
+ul.os-legend,ul#picture_legend.os-legend{display:flex !important;flex-wrap:wrap;gap:12px 44px;align-items:center;margin:48px 0 0 !important;padding:0 !important;list-style:none !important;font-family:var(--os-mono);font-size:13px;color:var(--os-muted)}
+ul.os-legend li.os-legend-item{display:flex !important;flex:none;align-items:center;gap:10px;float:none !important;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;line-height:1.3 !important;text-indent:0 !important;list-style:none !important}
+ul.os-legend li.os-legend-item img.os-legend-img{display:none !important}
+ul.os-legend li.os-legend-item .os-legend-ico{display:block !important;flex:none;width:38px !important;height:38px !important;margin:0 !important;background:var(--os-ico-read) center/contain no-repeat !important}
+ul.os-legend li.os-legend-item .os-legend-ico--unread{background:var(--os-ico-unread) center/contain no-repeat !important}
+ul.os-legend li.os-legend-item .os-legend-ico--read{background:var(--os-ico-read) center/contain no-repeat !important}
+ul.os-legend li.os-legend-item .os-legend-ico--locked{background:var(--os-ico-locked) center/contain no-repeat !important}
+.os-legend-text{display:block}
 
 /* ==========================================================
    index_body: visit bar, panels, login, who is online, statistics, chat
