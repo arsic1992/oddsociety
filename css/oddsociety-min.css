@@ -1,13 +1,13 @@
 /* ==========================================================
-   ODD SOCIETY - forum list theme v3 ("midnight zine")
+   ODD SOCIETY - theme v4 ("midnight zine"): forum list + index_body
    Separate paper-label category titles, floating forum cards.
-   Pairs with the index_box template (os- classes, flexbox).
+   Pairs with: index_box + index_body templates (os- classes, flexbox).
    Paste into: Admin Panel > Display > Colors > CSS Stylesheet
    ========================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Courier+Prime:wght@400;700&display=swap');
 
 :root{
-  --os-bg:#0d0a14; --os-card:#16101f; --os-card-hover:#1b1428; --os-border:#2f2445; --os-shadow:#1f1630;
+  --os-bg:#0d0a14; --os-line:#2a1f40; --os-card:#16101f; --os-card-hover:#1b1428; --os-border:#2f2445; --os-shadow:#1f1630;
   --os-bone:#efe6d2; --os-pink:#ff3d9a; --os-cyan:#3de0ff;
   --os-text:#b5accb; --os-muted:#9a90b2; --os-dim:#7d7396;
   --os-sans:'Inter','Helvetica Neue',Arial,sans-serif; --os-mono:'Courier Prime','Courier New',monospace;
@@ -87,12 +87,81 @@ body{background:var(--os-bg) radial-gradient(#1d1630 1.4px,transparent 1.6px) 0 
 
 .os-cat--gallery .os-forums,.os-gallery{box-sizing:border-box;padding:16px;overflow:auto;background:var(--os-card);border:2px solid var(--os-border);box-shadow:6px 6px 0 var(--os-shadow)}
 
-/* ---- legend ---- */
-.os-legend{display:flex;flex-wrap:wrap;gap:12px 44px;align-items:center;margin-top:8px;font-family:var(--os-mono);font-size:13px;color:var(--os-muted)}
+/* ---- legend (ul in index_body) ---- */
+.os-legend{list-style:none;margin:48px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:12px 44px;align-items:center;margin-top:8px;font-family:var(--os-mono);font-size:13px;color:var(--os-muted)}
 .os-legend-item{display:flex;align-items:center;gap:8px}
+.os-legend-img{display:none}
 .os-legend-ico{width:34px;height:34px;background:var(--os-ico-read) center/contain no-repeat}
 .os-legend-ico--unread{background-image:var(--os-ico-unread)}
 .os-legend-ico--locked{background-image:var(--os-ico-locked)}
+
+
+/* ==========================================================
+   index_body: visit bar, panels, login, who is online, statistics, chat
+   ========================================================== */
+.os-visitbar{display:flex;flex-wrap:wrap;gap:4px 20px;margin:0 0 18px;font-family:var(--os-mono);font-size:12.5px;color:var(--os-dim)}
+.os-visitbar .os-visit{margin:0;padding:0}
+.os-visit--last{order:2;margin-left:auto !important}
+.os-catname{margin:0}
+
+/* panels: announcement + login */
+.os-panel{box-sizing:border-box;margin:0 0 30px;padding:18px 22px;background:var(--os-card);border:2px solid var(--os-border);box-shadow:6px 6px 0 var(--os-shadow);color:var(--os-muted);font-size:14px;line-height:1.55}
+.os-panel--announce{border-color:var(--os-pink);box-shadow:6px 6px 0 rgba(255,61,154,.33)}
+.os-panel-title{margin:0 0 8px;font-family:var(--os-sans);font-weight:900;font-size:24px;letter-spacing:-.03em;color:var(--os-bone)}
+.os-panel a:link,.os-panel a:visited{color:var(--os-cyan);text-decoration:none}
+.os-login-form{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px 22px;margin:0;font-family:var(--os-mono);font-size:13px;color:var(--os-muted)}
+.os-login-field{display:flex;align-items:center;gap:8px;margin:0}
+.os-input{box-sizing:border-box;padding:7px 10px;background:var(--os-bg);border:2px solid var(--os-border);border-radius:0;color:var(--os-bone);font-family:var(--os-mono);font-size:13px}
+.os-input:focus{outline:0;border-color:var(--os-cyan)}
+.os-check{width:16px;height:16px;accent-color:var(--os-pink)}
+.os-btn{padding:8px 20px;background:var(--os-pink);border:0;border-radius:0;color:var(--os-bg);font-family:var(--os-sans);font-weight:900;font-size:14px;cursor:pointer;transform:rotate(-1deg)}
+.os-btn:hover{background:var(--os-cyan)}
+.os-social{display:flex;gap:10px}
+
+/* loose paper labels (same look as the category title) */
+.os-info{display:flex;flex-direction:column;gap:44px;margin-top:6px}
+.os-box{position:relative}
+.os-label{position:relative;display:inline-block;margin:0 0 20px 8px;padding:6px 20px;background:var(--os-bone);transform:rotate(-.8deg)}
+.os-label:before,.os-label:after{content:"";position:absolute;top:-9px;width:54px;height:20px}
+.os-label:before{left:-22px;transform:rotate(-30deg);background:rgba(61,224,255,.6)}
+.os-label:after{right:-22px;transform:rotate(26deg);background:rgba(255,61,154,.6)}
+.os-label a,.os-label a:link,.os-label a:visited,.os-label span{display:block;margin:0;padding:0;border:0;background:none;font-family:var(--os-sans) !important;font-weight:900 !important;font-size:25px !important;line-height:1.25;letter-spacing:-.02em;text-transform:none !important;color:var(--os-bg) !important;text-decoration:none !important}
+
+/* card */
+.os-card{box-sizing:border-box;padding:22px 24px;background:var(--os-card);border:2px solid var(--os-border);box-shadow:6px 6px 0 var(--os-shadow);font-size:14px;line-height:1.6;color:var(--os-muted)}
+.os-card a:link,.os-card a:visited{text-decoration:none}
+.os-line{margin:0;padding:0}
+.os-line br{display:none}
+
+/* who is online */
+.os-online{display:flex;flex-wrap:wrap;gap:20px 44px}
+.os-online-icon{display:none}
+.os-online-main{flex:2 1 380px;min-width:0;display:flex;flex-direction:column;gap:8px}
+.os-online-side{flex:1 1 260px;min-width:0;display:flex;flex-direction:column;gap:8px;padding-left:44px;border-left:2px dashed var(--os-line)}
+.os-online-total,.os-online-record{color:var(--os-text)}
+.os-online strong{font-family:var(--os-sans);font-weight:900;font-size:18px;letter-spacing:-.02em;color:var(--os-pink)}
+.os-online-users a:link,.os-online-users a:visited{display:inline-block;margin:0 4px 0 6px;padding:1px 12px;background:var(--os-bg);border:2px solid var(--os-border);transform:rotate(-1.2deg)}
+.os-online-users strong{font-size:15px;letter-spacing:0;color:inherit}
+.os-birthday{font-family:var(--os-mono);font-size:13px;color:var(--os-dim)}
+.os-online-legend{flex:0 0 100%;display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;padding-top:18px;border-top:2px dashed var(--os-line)}
+.os-legend-label{font-family:var(--os-mono);font-size:12px;color:var(--os-dim)}
+.os-legend-label:after{content:":"}
+/* group legend: font-size 0 hides the [ ] brackets between the links */
+.os-groups{font-size:0;line-height:0}
+.os-groups a,.os-groups a:link,.os-groups a:visited{display:inline-block;margin:0 10px 0 0;padding:2px 12px;background:var(--os-bg);border:2px solid currentColor;font-family:var(--os-mono) !important;font-weight:700 !important;font-size:12px !important;line-height:1.5;text-decoration:none !important;transform:rotate(-1.2deg)}
+.os-groups b{font-weight:700}
+.os-groups a:nth-of-type(even){transform:rotate(1deg)}
+
+/* statistics: three tiles - label, big pink value, unit */
+.os-stats{display:flex;flex-wrap:wrap;gap:16px}
+.os-stat{box-sizing:border-box;flex:1 1 220px;margin:0;padding:18px 20px;background:var(--os-card);border:2px solid var(--os-border);box-shadow:6px 6px 0 var(--os-shadow);font-family:var(--os-mono);font-size:13px;line-height:1.5;color:var(--os-dim)}
+.os-stat strong{display:block;margin:6px 0 4px;font-family:var(--os-sans);font-weight:900;font-size:40px;line-height:1;letter-spacing:-.04em;color:var(--os-pink)}
+.os-stat a:link,.os-stat a:visited{text-decoration:none;color:var(--os-cyan)}
+.os-stat a strong{color:inherit;font-size:30px}
+.os-stat:nth-child(2) strong{color:var(--os-cyan)}
+
+/* chat box */
+.os-chat a:link,.os-chat a:visited{color:var(--os-cyan)}
 
 /* ---- small screens ---- */
 @media (max-width:760px){
@@ -106,4 +175,7 @@ body{background:var(--os-bg) radial-gradient(#1d1630 1.4px,transparent 1.6px) 0 
   .os-count,.os-count-label{display:inline}
   .os-count-label{margin-left:5px}
   .os-last{width:100%;padding:12px 0 0}
+  .os-online-side{padding-left:0;border-left:0}
+  .os-card{padding:16px}
+  .os-label a,.os-label span{font-size:21px !important}
 }
