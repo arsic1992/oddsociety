@@ -111,24 +111,20 @@ ul.os-legend li.os-legend-item .os-legend-ico--locked{background:var(--os-ico-lo
 .os-navbar .os-navlinks a,.os-navbar .os-navlinks a:link,.os-navbar .os-navlinks a:visited{display:inline-block;font-family:var(--os-mono) !important;font-weight:700;font-size:13px !important;text-transform:none;color:var(--os-bone) !important;text-decoration:none !important}
 .os-navbar .os-navlinks a:hover{color:var(--os-pink) !important}
 .os-navbar .os-navlinks img{display:none !important}
-/* search sits on the right edge on wide screens so the links stay exactly centered */
-.os-navbar .os-search{flex:0 0 100%;display:flex;justify-content:center;margin:0;padding:0;float:none}
-@media (min-width:1181px){
-  .os-navbar .os-navlinks{max-width:calc(100% - 540px)}
-  .os-navbar .os-search{position:absolute;right:32px;top:50%;flex:none;transform:translateY(-50%)}
-}
-.os-navbar .os-search-form{margin:0}
-.os-navbar .os-search-row{display:flex;gap:8px;margin:0;padding:0}
-.os-navbar .os-search-input{box-sizing:border-box;width:150px;padding:7px 10px;background:var(--os-bg);border:2px solid var(--os-border);border-radius:0;color:var(--os-bone);font-family:var(--os-mono);font-size:13px}
-.os-navbar .os-search-input:focus{outline:0;border-color:var(--os-cyan)}
-.os-navbar .os-search-btn{padding:7px 16px;background:var(--os-pink);border:0;border-radius:0;color:var(--os-bg);font-family:var(--os-sans);font-weight:900;font-size:13px;cursor:pointer}
-.os-navbar .os-search-btn:hover{background:var(--os-cyan)}
+/* the forum's own "Search" menu item opens a small dropdown form; li has font-size 0, so give it back */
+.os-navbar .overview{box-sizing:border-box;margin-top:12px;padding:14px 16px;background:var(--os-card) !important;border:2px solid var(--os-border);box-shadow:6px 6px 0 var(--os-shadow);font-family:var(--os-mono);font-size:13px;line-height:1.6;color:var(--os-muted);text-align:left}
+.os-navbar .overview *{font-size:13px}
+.os-navbar .overview p{margin:0 0 8px;padding:0;background:none !important;border:0}
+.os-navbar .overview input[type="text"]{box-sizing:border-box;padding:6px 10px;background:var(--os-bg);border:2px solid var(--os-border);border-radius:0;color:var(--os-bone);font-family:var(--os-mono)}
+.os-navbar .overview input[type="submit"]{padding:6px 14px;background:var(--os-pink);border:0;border-radius:0;color:var(--os-bg);font-family:var(--os-sans);font-weight:900;cursor:pointer}
+.os-navbar .overview a:link,.os-navbar .overview a:visited{color:var(--os-cyan) !important}
+.os-navbar .overview hr{border:0;border-top:2px dashed var(--os-line);margin:8px 0}
 
-/* header: just the image, 100% wide, 435px tall, cover */
+/* header: just the image, 100% wide, 510px tall, cover */
 #page-header.os-header{position:relative;display:block !important;box-sizing:border-box;width:100% !important;max-width:none !important;margin:0 !important;padding:0 !important;background:var(--os-bg) !important;border:0 !important;float:none !important}
-.os-header .os-hero{position:relative;box-sizing:border-box;width:100%;height:435px;overflow:hidden;background:var(--os-card);border-bottom:2px solid var(--os-border)}
+.os-header .os-hero{position:relative;box-sizing:border-box;width:100%;height:510px;overflow:hidden;background:var(--os-card);border-bottom:2px solid var(--os-border)}
 .os-header .os-hero-link{display:block;width:100%;height:100%;margin:0;padding:0}
-.os-header .os-hero-img{display:block;box-sizing:border-box;width:100% !important;height:435px !important;max-width:none !important;max-height:none !important;margin:0;padding:0;border:0;object-fit:cover;object-position:center}
+.os-header .os-hero-img{display:block;box-sizing:border-box;width:100% !important;height:510px !important;max-width:none !important;max-height:none !important;margin:0;padding:0;border:0;object-fit:cover;object-position:center}
 .os-header .os-ticker{box-sizing:border-box;padding:10px 48px;background:var(--os-card);border-bottom:2px solid var(--os-border);color:var(--os-muted)}
 
 /* site title + description are still in the page (SEO / forum variables) but not shown */
