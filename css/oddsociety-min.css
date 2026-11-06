@@ -1,7 +1,7 @@
 /* ==========================================================
-   ODD SOCIETY - theme v4 ("midnight zine"): forum list + index_body
+   ODD SOCIETY - theme v5 ("midnight zine"): header + forum list + index_body
    Separate paper-label category titles, floating forum cards.
-   Pairs with: index_box + index_body templates (os- classes, flexbox).
+   Pairs with: overall_header + index_box + index_body templates (os- classes, flexbox).
    Paste into: Admin Panel > Display > Colors > CSS Stylesheet
    ========================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Courier+Prime:wght@400;700&display=swap');
@@ -98,6 +98,39 @@ ul.os-legend li.os-legend-item .os-legend-ico--locked{background:var(--os-ico-lo
 .os-legend-text{display:block}
 
 /* ==========================================================
+   overall_header: full-width hero (outside #wrap, under #fa_toolbar)
+   ========================================================== */
+#page-header.os-header{position:relative;display:block !important;box-sizing:border-box;width:100% !important;max-width:none !important;margin:0 !important;padding:0 !important;background:var(--os-bg) !important;border:0 !important;float:none !important}
+.os-header .os-hero{position:relative;box-sizing:border-box;width:100%;height:435px;overflow:hidden;background:var(--os-card);border-bottom:2px solid var(--os-border)}
+.os-header .os-hero-link{display:block;width:100%;height:100%;margin:0;padding:0}
+.os-header .os-hero-img{display:block;box-sizing:border-box;width:100% !important;height:435px !important;max-width:none !important;max-height:none !important;margin:0;padding:0;border:0;object-fit:cover;object-position:center}
+.os-header .os-hero:after{content:"";position:absolute;left:0;right:0;bottom:0;top:0;pointer-events:none;background:linear-gradient(to top,rgba(13,10,20,.94) 0,rgba(13,10,20,.45) 42%,rgba(13,10,20,0) 75%)}
+.os-header .os-hero-text{position:absolute;z-index:2;left:0;right:0;bottom:0;box-sizing:border-box;display:flex;flex-wrap:wrap;align-items:flex-end;gap:18px 44px;padding:0 48px 42px;pointer-events:none}
+.os-header .os-hero-title,.os-header .os-hero-title h1,.os-header .os-hero-title a,.os-header .os-hero-title a:link,.os-header .os-hero-title a:visited{margin:0 !important;padding:0 !important;border:0 !important;background:none !important;font-family:var(--os-sans) !important;font-weight:900 !important;font-size:clamp(48px,8vw,96px) !important;line-height:.92 !important;letter-spacing:-.045em !important;text-transform:none !important;color:var(--os-bone) !important;text-decoration:none !important}
+.os-header .os-hero-title{text-shadow:5px 4px 0 var(--os-pink),-3px -2px 0 var(--os-cyan);transform:rotate(-1.5deg)}
+.os-header .os-hero-desc{position:relative;box-sizing:border-box;max-width:460px;margin:0 0 6px;padding:10px 16px;background:var(--os-bone);color:var(--os-bg);font-family:var(--os-mono);font-size:15px;line-height:1.4;transform:rotate(1.2deg)}
+.os-header .os-hero-desc:before{content:"";position:absolute;top:-11px;right:-18px;width:62px;height:22px;background:rgba(61,224,255,.65);transform:rotate(26deg)}
+
+/* nav bar under the hero (placeholder until your own navbar) */
+.os-header .os-navbar{box-sizing:border-box;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 28px;padding:14px 48px;background:var(--os-card);border-bottom:2px solid var(--os-border)}
+.os-header .os-navlinks{display:flex;flex-wrap:wrap;gap:6px 20px;margin:0 !important;padding:0 !important;list-style:none !important;border:0 !important;background:none !important}
+.os-header .os-navlinks li{display:block !important;float:none !important;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;font-size:0}
+.os-header .os-navlinks a,.os-header .os-navlinks a:link,.os-header .os-navlinks a:visited{display:inline-block;font-family:var(--os-mono) !important;font-weight:700;font-size:13px !important;text-transform:none;color:var(--os-bone) !important;text-decoration:none !important}
+.os-header .os-navlinks a:hover{color:var(--os-pink) !important}
+.os-header .os-navlinks img{display:none !important}
+.os-header .os-search{margin:0;padding:0;float:none}
+.os-header .os-search-form{margin:0}
+.os-header .os-search-row{display:flex;gap:8px;margin:0;padding:0}
+.os-header .os-search-input{box-sizing:border-box;width:200px;padding:7px 10px;background:var(--os-bg);border:2px solid var(--os-border);border-radius:0;color:var(--os-bone);font-family:var(--os-mono);font-size:13px}
+.os-header .os-search-input:focus{outline:0;border-color:var(--os-cyan)}
+.os-header .os-search-btn{padding:7px 16px;background:var(--os-pink);border:0;border-radius:0;color:var(--os-bg);font-family:var(--os-sans);font-weight:900;font-size:13px;cursor:pointer}
+.os-header .os-search-btn:hover{background:var(--os-cyan)}
+.os-header .os-ticker{box-sizing:border-box;padding:10px 48px;background:var(--os-card);border-bottom:2px solid var(--os-border);color:var(--os-muted)}
+
+/* breathing room between the header and the forum content inside #wrap */
+#page-body{padding-top:40px}
+
+/* ==========================================================
    index_body: visit bar, panels, login, who is online, statistics, chat
    ========================================================== */
 .os-visitbar{display:flex;flex-wrap:wrap;gap:4px 20px;margin:0 0 18px;font-family:var(--os-mono);font-size:12.5px;color:var(--os-dim)}
@@ -179,4 +212,6 @@ ul.os-legend li.os-legend-item .os-legend-ico--locked{background:var(--os-ico-lo
   .os-online-side{padding-left:0;border-left:0}
   .os-card{padding:16px}
   .os-label a,.os-label span{font-size:21px !important}
+  .os-header .os-hero-text{padding:0 18px 24px}
+  .os-header .os-navbar,.os-header .os-ticker{padding:12px 16px}
 }
