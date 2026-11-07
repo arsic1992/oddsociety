@@ -85,7 +85,19 @@ body{background:var(--os-bg) radial-gradient(#1d1630 1.4px,transparent 1.6px) 0 
 .os-last-meta a.last-post-icon{position:absolute;right:0;top:50%;transform:translateY(-50%);display:block;width:34px;height:34px;background:var(--os-pink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230d0a14' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 17L17 7M8 7h9v9'/%3E%3C/svg%3E") center/18px no-repeat}
 .os-last-meta a.last-post-icon img{display:block;width:34px !important;height:34px !important;opacity:0}
 
-.os-cat--gallery .os-forums,.os-gallery{box-sizing:border-box;padding:16px;overflow:auto;background:var(--os-card);border:2px solid var(--os-border);box-shadow:6px 6px 0 var(--os-shadow)}
+/* ---- image gallery (images_list page + "Recently shared images" on the index) ---- */
+.os-page-title{display:inline-block;margin:0 0 6px !important;padding:0 !important;border:0 !important;background:none !important;font-family:var(--os-sans) !important;font-weight:900 !important;font-size:clamp(34px,5vw,52px) !important;line-height:1 !important;letter-spacing:-.04em !important;text-transform:none !important;color:var(--os-bone) !important;text-shadow:4px 3px 0 var(--os-pink),-2px -2px 0 var(--os-cyan);transform:rotate(-1deg)}
+.os-page-desc{max-width:640px;margin:14px 0 36px !important;padding:0 !important;font-family:var(--os-mono);font-size:14px;line-height:1.5;color:var(--os-muted)}
+.os-gallery{box-sizing:border-box;padding:28px 24px;overflow:auto;background:var(--os-card);border:2px solid var(--os-border);box-shadow:6px 6px 0 var(--os-shadow)}
+.os-gallery .image_item{position:relative !important;overflow:hidden !important;box-sizing:border-box;background:var(--os-bg) !important;border:2px solid var(--os-bone) !important;border-radius:0 !important;box-shadow:6px 6px 0 var(--os-shadow) !important}
+.os-gallery .image_column:nth-child(odd) .image_item{transform:rotate(-1deg)}
+.os-gallery .image_column:nth-child(even) .image_item{transform:rotate(1deg)}
+.os-gallery .image_item:hover{transform:rotate(0) translate(-2px,-2px);border-color:var(--os-pink) !important;box-shadow:8px 8px 0 var(--os-pink) !important}
+.os-gallery .image_item img{display:block !important;width:100% !important;height:100% !important;max-width:none !important;object-fit:cover;border:0 !important;border-radius:0 !important}
+.os-gallery .image_item a.text_overlay,.os-gallery .image_item a.text_overlay:link,.os-gallery .image_item a.text_overlay:visited{box-sizing:border-box;padding:0 !important;background:var(--os-bone) !important;border:0 !important;opacity:1 !important;color:var(--os-bg) !important;text-decoration:none !important}
+.os-gallery .image_item a.text_overlay:hover{background:var(--os-pink) !important}
+.os-gallery .text_overlay .innerTitle{padding:0 !important;background:none !important}
+.os-gallery .text_overlay .innerTitle div{min-width:0 !important;box-sizing:border-box;padding:8px 12px !important;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:var(--os-sans) !important;font-weight:800 !important;font-size:13px !important;line-height:1.3 !important;color:var(--os-bg) !important}
 
 /* ---- legend (ul in index_body): uses the same stickers as the forum rows ---- */
 ul.os-legend,ul#picture_legend.os-legend{display:flex !important;flex-wrap:wrap;gap:12px 44px;align-items:center;margin:48px 0 0 !important;padding:0 !important;list-style:none !important;font-family:var(--os-mono);font-size:13px;color:var(--os-muted)}
@@ -110,10 +122,8 @@ ul.os-legend li.os-legend-item .os-legend-ico--locked{background:var(--os-ico-lo
 .os-navbar .os-navlinks{display:flex;flex-wrap:wrap;justify-content:center;gap:0;margin:0 !important;padding:0 !important;list-style:none !important;border:0 !important;background:none !important}
 /* every menu item is a block: the whole <li> is the link, hover fills it */
 .os-navbar .os-navlinks li{display:flex !important;position:relative;float:none !important;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;font-size:0}
-.os-navbar .os-navlinks li + li{box-shadow:inset 2px 0 0 var(--os-line)}
 .os-navbar .os-navlinks a,.os-navbar .os-navlinks a:link,.os-navbar .os-navlinks a:visited{display:flex !important;align-items:center;box-sizing:border-box;min-height:62px;margin:0 !important;padding:0 10px !important;background:none !important;font-family:var(--os-mono) !important;font-weight:700;font-size:13px !important;line-height:1.2;text-transform:none;white-space:nowrap;color:var(--os-bone) !important;text-decoration:none !important;transition:none}
 .os-navbar .os-navlinks a:hover,.os-navbar .os-navlinks a:focus-visible{background:var(--os-pink) !important;color:var(--os-bg) !important;outline:0}
-.os-navbar .os-navlinks li:hover{box-shadow:none}
 .os-navbar .os-navlinks img{display:none !important}
 /* the forum's own "Search" menu item opens a small dropdown form; li has font-size 0, so give it back */
 .os-navbar .overview{box-sizing:border-box;top:100% !important;left:0 !important;margin-top:0;padding:14px 16px;background:var(--os-card) !important;border:2px solid var(--os-border);box-shadow:6px 6px 0 var(--os-shadow);font-family:var(--os-mono);font-size:13px;line-height:1.6;color:var(--os-muted);text-align:left}
