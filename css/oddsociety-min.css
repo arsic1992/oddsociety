@@ -8,7 +8,7 @@
 
 :root{
   --os-bg:#0d0a14; --os-line:#2a1f40; --os-card:#16101f; --os-card-hover:#1b1428; --os-border:#2f2445; --os-shadow:#1f1630;
-  --os-bone:#efe6d2; --os-pink:#ff3d9a; --os-cyan:#3de0ff;
+  --os-bone:#efe6d2; --os-pink:#ff3d9a; --os-cyan:#3de0ff; --os-green:#3ddc84;
   --os-text:#b5accb; --os-muted:#9a90b2; --os-dim:#7d7396;
   --os-sans:'Inter','Helvetica Neue',Arial,sans-serif; --os-mono:'Courier Prime','Courier New',monospace;
   --os-w-ind:96px; --os-w-count:92px; --os-w-last:340px;
@@ -432,6 +432,13 @@ a.os-totop,a.os-totop:link,a.os-totop:visited,a.os-todown,a.os-todown:link,a.os-
 .os-post{position:relative;display:flex;box-sizing:border-box;margin:50px 0 54px;background:var(--os-card);border:2px solid var(--os-border);box-shadow:6px 6px 0 var(--os-shadow);color:var(--os-muted)}
 .os-post.row2{background:#191221}
 .os-post > div:first-child{flex:none;width:0 !important;height:0;margin:0 !important;padding:0}
+/* thanked post = "best answer": the forum's light inline colour is ignored, the card turns green instead */
+.os-thanked-flag{display:none !important}
+.os-post:has(.os-thanked-flag[style]),.os-post[style*="background-color"]{background-color:var(--os-card) !important;background-image:none !important;border-color:var(--os-green) !important;box-shadow:6px 6px 0 rgba(61,220,132,.3) !important}
+.os-post.row2:has(.os-thanked-flag[style]),.os-post.row2[style*="background-color"]{background-color:#191221 !important}
+.os-post:has(.os-thanked-flag[style])::before,.os-post[style*="background-color"]::before{content:"\2713  Best answer";position:absolute;top:-18px;right:130px;z-index:4;padding:6px 18px;background:var(--os-green);box-shadow:4px 4px 0 rgba(0,0,0,.4);font-family:var(--os-sans);font-weight:900;font-size:15px;line-height:1.2;letter-spacing:-.01em;color:var(--os-bg);transform:rotate(2deg)}
+.os-post:has(.os-thanked-flag[style]) .os-byline,.os-post[style*="background-color"] .os-byline{border-bottom-color:rgba(61,220,132,.45)}
+.os-post:has(.os-thanked-flag[style]) .os-post-foot,.os-post[style*="background-color"] .os-post-foot{border-top-color:rgba(61,220,132,.45)}
 .os-post--hidden{display:block;margin:0 0 30px;padding:18px 24px}
 .os-post--hidden:before{content:"";position:absolute;top:-11px;left:34px;width:64px;height:22px;background:rgba(61,224,255,.6);transform:rotate(-4deg)}
 .os-hidden-msg{margin:0;text-align:center;font-family:var(--os-mono);font-size:13px;color:var(--os-muted)}
@@ -578,6 +585,7 @@ a.os-totop,a.os-totop:link,a.os-totop:visited,a.os-todown,a.os-todown:link,a.os-
   .os-actions--bottom .os-pagination{justify-content:flex-start}
   .os-actions--topic .os-pagination{margin-left:0}
   .os-post{margin:46px 0 44px}
+  .os-post:has(.os-thanked-flag[style])::before,.os-post[style*="background-color"]::before{right:16px}
   .os-byline{padding:16px 16px 14px}
   .os-profile{flex:1 1 100%;padding-left:128px}
   .os-avatar{left:16px;width:100px}
